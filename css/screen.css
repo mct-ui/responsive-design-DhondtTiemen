@@ -199,9 +199,13 @@ a:focus {
 }
 
 /* size modifiers */
+.o-row--md {
+    padding: 48px 24px 24px;
+}
 
 .o-row--lg {
-    padding: 48px 24px 24px;
+    padding-top: 48px;
+    padding-bottom: 24px;
 }
 
 @media (min-width: 768px) {
@@ -347,6 +351,33 @@ a:focus {
 }
 
 /*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+    display: flow-root; /*zorgt ervoor dat de o-section dat de margin wordt meegeteld*/
+}
+
+.o-section + .o-section { /*EXAMEN: + is de adjacent sibling combinator*/
+    margin-top: 24px;
+}
+
+@media (min-width: 768px) {
+    .o-section--lg + .o-section--lg,
+    .o-section--xl + .o-section--xl {
+        margin-top: 48px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .o-section--xl + .o-section--xl {
+        margin-top: 72px;
+    }
+}
+
+/*
     Objects: List
     ---
     Small reusable object to remove default list styling from lists
@@ -453,6 +484,9 @@ a:focus {
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
+.u-pt-clear{
+    padding-top: 0 !important;
+}
 
 /*
     Utilities: max-width
